@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>YouTube Comment Sentiment Analysis</title>
+    <link rel="stylesheet" href="/static/style_results.css">
+</head>
+<body>
+    <div class="container">
+        <center><img src="/static/youtube_analysis_logo.png" alt="Loading...."></center>
+        <div class="margin">
+            <hr>
+            <h1><center>Information</center></h1>
+            <hr>
+        <ul>
+        <li><b>Video Name : </b>{{ video_title }}</li>
+        <li><b>Video Link : </b>{{ video_link }}</li>        
+        <li><b>Positive Percentage : </b>{{ positive_percentage }}%</li>
+        <li><b>Neutral Percentage : </b>{{ neutral_percentage }}%</li>
+        <li><b>Negative Percentage : </b>{{ negative_percentage }}%</li>
+        <li><b>Sentiment : </b>{{ dominant_emoji }}</li>
+        </ul>
+        <hr>
+        <h1><center>Top Comments</center></h1>
+        <hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Author</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for index, row in positive_comments.iterrows() %}
+                    <tr>
+                        <td>{{ row['Author'] }}</td>
+                        <td>{{ row['Comment'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+
+        <!-- Add buttons to display charts and word cloud -->
+        <div class="button-container">
+            <form action="/charts" method="get">
+                <input type="image" src="/static/graph_button.png">
+            </form>
+    
+            <form action="/word_cloud" method="get">
+                <input type="image" src="/static/word_char_button.png">
+            </form>
+
+            <form action="/index_1" method="get">
+                <input type="image" src="/static/back_button.png">
+            </form>
+            
+        </div>
+        </div>
+        
+    </div>
+</body>
+</html>

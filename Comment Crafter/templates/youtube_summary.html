@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Video Summary</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    background-image: url(/static/youtube_summary_background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.main_content {
+    width: 900px;
+    margin: 50px 275px 50px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 3%;
+    border-radius: 1.5cm;
+}
+.main_content img{
+    height: 225px;
+}
+hr{
+    width: 500px;
+    margin: 40px auto;
+}
+.transcipt{
+    width: 800px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size:large;
+    padding: 50px;
+
+    outline: 1px solid black;
+    outline-offset: -5px;
+    border-radius: 50px;
+    line-height: 1.6;
+    
+}
+
+form {
+    margin-bottom: 30px;
+    margin-top: 50px;
+    
+}
+form input{
+    height: 70px;
+    width: 225px;
+}
+
+
+</style>
+<body>
+    <div class="main_content">
+    <center><img src="/static/transscript_logo.png" alt=""></center>
+    <hr>
+    <center><h2>Video Name</h2></center>
+    <center><p>{{ video_title }}</p></center>
+    <br>
+    <center><h2>Video Link</h2></center>
+    <center><p>{{ video_link }}</p></center>
+    <hr>
+    <center><h2>Transcipt</h2></center>
+    <br><br>
+    <div class="transcipt">
+    <p>{{ summary }}</p>
+
+    </div>
+    <form action="/youtube_summary" method="get">
+        <center><input type="image" src="/static/back_button.png"></center>
+    </form>
+    </div>
+
+</body>
+</html>

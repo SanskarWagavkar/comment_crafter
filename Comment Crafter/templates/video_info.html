@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Video Information</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("/static/pexels-simon-berger-1323550 (1).jpg");
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-size: cover;
+        background-attachment: fixed;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .chart {
+            width: 45%;
+            background-color: #ecf0f1;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        #comparison-pie-chart {
+            width: 100%; /* Set pie chart to full width */
+            margin: 20px 0; /* Add some margin for better spacing */
+        }
+
+        .value {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+        button {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>YouTube Video Statistics</h1>
+    </header>
+
+    <main>
+        <p>Video Link: {{ video_link }}</p>
+        <p>Video Title: {{ video_title }}</p>
+
+        <h2>Video Statistics</h2>
+
+        <div class="chart-container">
+            <div id="likes-bar-chart" class="chart"></div>
+            <div id="views-bar-chart" class="chart"></div>
+            <div id="comments-bar-chart" class="chart"></div>
+        </div>
+
+        <h2>Comparison</h2>
+
+        <div id="comparison-pie-chart" class="chart"></div>
+
+        <p>Likes: <span id="likes-value" class="value"></span></p>
+        <p>Views: <span id="views-value" class="value"></span></p>
+        <p>Comments: <span id="comments-value" class="value"></span></p>
+        <p>Subscriber Status: <span id="subscribed-value" class="value"></span></p>
+        <button onclick="goBack()">Back</button>
+    </main>
+
+    <footer>
+        <p>© 2023 Sanskar & Divya</p>
+    </footer>
+
+    <script>
+        const likesData = {{ likes|tojson|safe }};
+        const viewsData = {{ views|tojson|safe }};
+        const commentsData = {{ num_comments|tojson|safe }};
+
+        const likesBarChart = document.getElementById('likes-bar-chart');
+        const viewsBarChart = document.getElementById('views-bar-chart');
+        const commentsBarChart = document.getElementById('comments-bar-chart');
+        const comparisonPieChart = document.getElementById('comparison-pie-chart');
+        const subscribedValue = document.getElementById('subscribed-value');
+
+        const likesValue = document.getElementById('likes-value');
+        const viewsValue = document.getElementById('views-value');
+        const commentsValue = document.getElementById('comments-value');
+
+        const layout = {
+            title: 'Video Statistics',
+        };
+
+        // Create bar charts
+        Plotly.newPlot(likesBarChart, [{ x: ['Likes'], y: [likesData], type: 'bar' }, layout]);
+        Plotly.newPlot(viewsBarChart, [{ x: ['Views'], y: [viewsData], type: 'bar' }, layout]);
+        Plotly.newPlot(commentsBarChart, [{ x: ['Comments'], y: [commentsData], type: 'bar' }, layout]);
+        
+        // Create pie chart for comparison
+        const data = [
+            { labels: ['Likes', 'Views', 'Comments'], values: [likesData, viewsData, commentsData], type: 'pie' },
+        ];
+        Plotly.newPlot(comparisonPieChart, data, layout);
+        
+        // Display numeric values
+        likesValue.textContent = likesData;
+        viewsValue.textContent = viewsData;
+        commentsValue.textContent = commentsData;
+
+        // Determine Subscribed/Not Subscribed
+        const viewThreshold = 1000000; // Adjust the threshold as needed
+        const subscribedStatus = viewsData > viewThreshold ? "Subscribed" : "Not Subscribed";
+        subscribedValue.textContent = subscribedStatus;
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Charts</title>
+    <link rel="stylesheet" href="/static/style_charts.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+    <center><img src="/static/graph_logo.png" alt="Loading....."></center>
+    </div>
+    <hr>
+    <center><h1>Pie Chart</h1></center>
+    <hr>
+
+    <!-- Display the pie chart and bar chart -->
+    {{ pie_chart | safe }}
+
+    <hr>
+    <center><h1>Bar Chart</h1></center>
+    <hr>
+
+    {{ bar_chart | safe }}
+
+    <div class="back">
+        <form action="/index_1" method="get">
+            <center><input type="image" src="/static/back_button.png"></center>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

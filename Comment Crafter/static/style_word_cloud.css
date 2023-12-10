@@ -1,0 +1,40 @@
+body{
+
+    padding: 0;
+    margin: 0;
+    background-image: url("Background_Image_Youtube_Page.png");
+
+
+}
+.container {
+    margin: 50px 250px 50px;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 1cm;
+    box-shadow: 0 0 0 3px #8b007d;
+    padding-bottom: 30px;
+    
+}
+/* style.css */
+a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    
+
+}
+
+.button_back{
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+.button_back form input{
+    height: 70px;
+    width: 250px;
+
+}
+

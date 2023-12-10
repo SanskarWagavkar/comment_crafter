@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8kHuRBnG1ix1bXfLvHN4A2g2tMUpA" crossorigin="anonymous">
+    <style>
+        body {
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            background-image: url("/static/white-color-background-w5cnsm83mhhhex71.jpg");
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        p {
+            margin: 1rem 0;
+            color: black;
+            text-align: justify;
+        }
+        h1{
+            color: rgb(0, 0, 0);
+        }
+        img{
+            height: 200px;
+            width: 400px;
+        }
+        button {
+            width: 10%;
+            padding: 0.75rem;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/static/Summary_logo.png" alt="Loading...">
+    </header>
+
+    <div class="container">
+        <h1>Summary</h1>
+        <p>{{ summary }}</p>
+    </div> 
+
+    <center><button onclick="goBack()">Back</button></center>
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

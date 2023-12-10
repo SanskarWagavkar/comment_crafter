@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Video Transcript</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            background-image: url("/static/background_page2.png");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+    margin: 40px auto;
+    max-width: 700px;
+    background-color: #fff;
+    border-radius: 1cm;
+    padding: 0px;
+    text-align: left;
+}
+img{
+    width: 400px;
+    height: 250px;
+    margin-top: 20px;
+}
+h2{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 0px;
+}
+.container input{
+    width: 475px;
+    font-size: large;
+    border-radius: 50px;
+    height: 50px;
+    text-align: center;
+    box-shadow: #333;
+    border-color: #333;
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+.container button{
+    height: 60px;
+    border-radius: 2cm;
+    font-size: larger;
+    margin-bottom: 30px;
+
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <center><img src="/static/transscript_logo.png" alt=""></center>
+    <form method="POST">
+        <center><h2>Enter YouTube Video Link Here</h2></center>
+        <input type="text" name="video_link">
+        <center><button type="submit">Generate Transcript</button></center>
+    </form>
+    </div>
+</body>
+</html>

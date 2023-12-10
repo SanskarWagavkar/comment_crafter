@@ -1,0 +1,54 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url("Background_Image_Youtube_Page.png");
+    
+}
+
+.container {
+    margin: 1% auto;
+    width: 700px; /* Fixed width */
+    background-color: #fff;
+    border-radius: 1cm;
+    box-shadow: 0 0 0 3px #8b007d;
+    padding: 20px;
+    text-align: left;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.container h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.link {
+    margin-top: 20px;
+}
+
+.link input {
+    width: 80%;
+    font-size: large;
+    border-radius: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.submit_button input {
+    width: 40%;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjusted for smaller screens */
+        margin: 5% auto;
+        padding: 10px;
+    }
+}
